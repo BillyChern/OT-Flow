@@ -1,0 +1,10 @@
+torch
+torchvision
+pyarrow
+pandas
+scikit-learn
+matplotlib
+PyYAML
+torchdiffeq
+# Add flow_matching and pyOMT once they are vendored or setup as submodules/dependencies
+# For now, assuming we might copy relevant parts or install them separately. 

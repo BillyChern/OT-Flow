@@ -1,0 +1,32 @@
+# VAE Configuration
+dataset_root_path: "/home/cs/OT-diffusion-flow/dataset/data" # Path to the directory containing Parquet files
+image_size: [218, 178] # H, W
+channels: 3
+latent_dim: 100
+batch_size: 64
+learning_rate: 0.001 # Adam default is 0.001
+epochs: 100 # Reduced for a quick test run
+beta_kld: 1.0
+save_epoch_freq: 1 # Save every epoch for testing
+
+# OT Map Configuration
+ot_map_params:
+  max_iter: 20000       # Max iterations for optimizing potentials (can be tuned)
+  lr: 0.005             # Learning rate for Adam in OT solver
+  bat_size_n: 1024      # Batch size for noise samples (bat_X) during OT training
+  save_iter_freq: 2000  # Frequency to save intermediate d_h potentials (e.g., every 2000 iters)
+vae_encoder_path: "OT-flow/saved_models/vae_YYYYMMDD-HHMMSS/vae_final.pth" # Placeholder
+ot_solver_save_dir: "OT-flow/saved_models/ot_solver/" # Directory to save OT solver state and intermediate potentials
+
+# Flow Matching Configuration (to be added)
+flow_matching_params:
+  time_embed_dim: 128
+  hidden_dims: [512, 512, 512]
+  learning_rate: 1e-4
+  batch_size: 256 # Can be different from VAE/OT batching
+  epochs: 100 # Number of epochs for flow matching training
+  save_epoch_freq: 10
+flow_model_save_path: "OT-flow/saved_models/flow_model.pth"
+
+# Generation Parameters (can also go here or in a separate config)
+# ... existing code ... 
